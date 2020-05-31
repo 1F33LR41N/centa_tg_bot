@@ -42,14 +42,16 @@ def start(bot, update):
 def help(bot, update):
     reload(config)
     bot.sendMessage(chat_id=update.message.chat_id, text='''список доступных команд:
-    /apachestatus - нагрузка на сервере
-    /id - id пользователя
-    /ifconfig - сетевые настройки
-    /df - информация о дисковом пространстве (df -h)
-    /free - информация о памяти
-    /mpstat - информация о нагрузке на процессор
-    /dir1 - объем папки''' + config.dir1 + '''
-    /dirbackup - размер файла бэкапа за текущий день в папке ''' + config.dir_backup + '''
+    /status- состояние сервера ts3
+    /restart - перезапуск ts3
+    /update - обновление сервера ts3
+    /backup - резервная копия сервера ts3
+    /db_backup - резервная копия базы данных сервера ts3
+    /freemem - информация о памяти
+    /cpustat - информация о нагрузке на процессор
+    /df - информация о наличии места на жетском диске
+    /dirspace - объем папки''' + config.dir1 + '''
+    /bkpspace - размер файла бэкапа за текущий день в папке ''' + config.dir_backup + '''
 
     ''')
 
@@ -76,7 +78,7 @@ def df(bot, update):
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
 
 #функция команады free
-def free(bot, update):
+def freemem(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
@@ -145,8 +147,8 @@ dispatcher.add_handler(ifconfig_handler)
 df_handler = CommandHandler('df', df)
 dispatcher.add_handler(df_handler)
 
-free_handler = CommandHandler('free', free)
-dispatcher.add_handler(free_handler)
+freemem_handler = CommandHandler('freemem', freemem)
+dispatcher.add_handler(freemem_handler)
 
 mpstat_handler = CommandHandler('mpstat', mpstat)
 dispatcher.add_handler(mpstat_handler)
