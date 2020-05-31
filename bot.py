@@ -52,7 +52,7 @@ def help(bot, update):
     /db_backup - резервная копия базы данных сервера TS3
     /freemem - информация о памяти
     /df - информация о наличии места на жетском диске
-    /dirspace - объем папки''' + config.dir1 + '''
+    /dirspace - объем папки''' + config.ts3dir + '''
     /bkpspace - размер файла бэкапа за текущий день в папке ''' + config.dir_backup + '''
 
     ''')
@@ -83,7 +83,7 @@ def dir1(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        dir1_command = "du -sh "+ config.dir1
+        dir1_command = "du -sh "+ config.ts3dir
         run_command(dir1_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
 
@@ -112,7 +112,7 @@ def ts3status(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3status_command = config.dir1+"ts3server status"
+        ts3status_command = config.ts3dir + "ts3server status"
         run_command(ts3status_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -121,7 +121,7 @@ def ts3restart(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3restart_command = config.dir1+"ts3server restart"
+        ts3restart_command = config.ts3dir + "ts3server restart"
         run_command(ts3restart_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -130,7 +130,7 @@ def ts3update(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3update_command = config.dir1+"ts3server update"
+        ts3update_command = config.ts3dir + "ts3server update"
         run_command(ts3update_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -139,7 +139,7 @@ def ts3backup(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3backup_command = config.dir1+"ts3server backup"
+        ts3backup_command = config.ts3dir + "ts3server backup"
         run_command(ts3backup_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -148,7 +148,7 @@ def ts3stop(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3stop_command = config.dir1+"ts3server stop"
+        ts3stop_command = config.ts3dir + "ts3server stop"
         run_command(ts3stop_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -157,7 +157,7 @@ def ts3start(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3start_command = config.dir1+"ts3server start"
+        ts3start_command = config.ts3dir + "ts3server start"
         run_command(ts3start_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)        
         
