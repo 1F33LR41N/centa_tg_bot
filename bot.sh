@@ -1,2 +1,2 @@
 #!/bin/bash
-python /opt/controlbot/bot.py
+python /your/bot/directory/bot.py
