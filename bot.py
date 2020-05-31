@@ -112,7 +112,7 @@ def ts3status(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3status_command = config.ts3dir + "ts3server status"
+        ts3status_command = config.ts3dir + "ts3server.sh status"
         run_command(ts3status_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -121,7 +121,7 @@ def ts3restart(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3restart_command = config.ts3dir + "ts3server restart"
+        ts3restart_command = config.ts3dir + "ts3server.sh restart"
         run_command(ts3restart_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -130,7 +130,7 @@ def ts3update(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3update_command = config.ts3dir + "ts3server update"
+        ts3update_command = config.ts3dir + "ts3server.sh update"
         run_command(ts3update_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -139,7 +139,7 @@ def ts3backup(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3backup_command = config.ts3dir + "ts3server backup"
+        ts3backup_command = config.ts3dir + "ts3server.sh backup"
         run_command(ts3backup_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -148,7 +148,7 @@ def ts3stop(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3stop_command = config.ts3dir + "ts3server stop"
+        ts3stop_command = config.ts3dir + "ts3server.sh stop"
         run_command(ts3stop_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)
         
@@ -157,7 +157,7 @@ def ts3start(bot, update):
     reload(config)
     user = str(update.message.from_user.id)
     if user in config.admin: #если пользовательский id в списке admin то команда выполняется
-        ts3start_command = config.ts3dir + "ts3server start"
+        ts3start_command = config.ts3dir + "ts3server.sh start"
         run_command(ts3start_command)
         bot.sendMessage(chat_id=update.message.chat_id, text=textoutput)        
         
